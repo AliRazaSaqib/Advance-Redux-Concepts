@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+/** @format */
+
+import "./App.css";
+
+import { Provider } from "react-redux";
+import store, { persistor } from "./store";
+import Views from "./Views";
+import { PersistGate } from "redux-persist/integration/react";
 
 function App() {
+  // const [spin, setSpin] = useState(true);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setSpin(false);
+  //   }, 3000);
+  // }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Provider store={store}>
+        <PersistGate persistor={persistor}>
+          {/* {spin ? <Loader /> : <MainComponent />} */}
+
+          {/* {spin ? (
+          <Loader />
+        ) : (
+          <Router>
+            <Routes>
+              <Route path="/" exact element={<Login />} />
+              <Route path="/signup" exact element={<SignUp />} />
+              <Route path="/mainComponent" exact element={<MainComponent />} />
+              <Route path="/checkout" exact element={<Checkout />} />
+            </Routes>
+          </Router>
+        )} */}
+          <Views />
+        </PersistGate>
+      </Provider>
     </div>
   );
 }

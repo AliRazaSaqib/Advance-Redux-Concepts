@@ -1,38 +1,121 @@
+/** @format */
+@import "~antd/dist/antd.css";
 .App {
-  text-align: center;
+  background: linear-gradient(-135deg, #95773d, #0f2283);
+  height: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main_container {
+  padding: 28px 88px;
+  padding-bottom: 250px !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.site-layout-content {
+  min-height: 280px;
+  padding: 24px;
+  background: #fff;
+}
+.logo {
+  float: left;
+}
+.logo img {
+  height: 50px;
+}
+.ant-row-rtl .logo {
+  float: right;
+  margin: 16px 0 16px 24px;
+}
+[data-theme="dark"] .site-layout-content {
+  background: #141414;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.ant-menu {
+  font-size: 18px !important;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+  transition: all 1s ease-in-out;
+}
+
+/* apply gradient to checkout page */
+.handlePadding .typo {
+  color: white;
+  font-weight: 700;
+}
+
+.main_container .product_tabel {
+  width: 80%;
+}
+
+.main_container .payment_form {
+  width: 20%;
+}
+
+.ant-form-item {
+  margin-bottom: 14px !important;
+}
+
+.main_container .button:hover {
+  background-position: 100% 0;
+  transition: all 0.4s ease-in-out;
+  background-image: linear-gradient(to right, #096dd9, #eb2f96);
+  transform: scale(1.1);
+}
+
+/* login form  */
+.login-warp {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 100vh;
+}
+.ant-form {
+  border-radius: 12px;
+}
+.login-form {
+  background: white;
+  width: 25%;
+  padding: 52px 34px !important;
+}
+.login-form-forgot {
+  float: right;
+}
+.ant-col-rtl .login-form-forgot {
+  float: left;
+}
+.login-form-button {
+  width: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.ant-input-affix-wrapper {
+  padding: 10px 11px !important;
+}
+.ant-btn-primary {
+  margin-bottom: 12px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width: 600px) {
+  .main_container {
+    padding: 0 12px;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media (max-width: 1025px) {
+  .main_container .row {
+    flex-direction: column;
+  }
+  .handlePadding {
+    padding: 24px 12px !important;
+  }
+  .main_container .product_tabel {
+    width: 100%;
+  }
+  .main_container .payment_form {
+    width: 100%;
+  }
+  h1.ant-typography,
+  .ant-typography h1 {
+    font-size: 28px !important;
   }
 }
