@@ -4,10 +4,16 @@ import React from "react";
 import { Form, Input, Button } from "antd";
 import { UserOutlined, LockOutlined, MailOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { authSignUp } from "../redux/action/auth";
 
 const SignUp = () => {
+  const dispatch = useDispatch();
+  const token = "husyj893jd893ijiy7";
   const onFinish = (values) => {
-    localStorage.setItem("userLogin", JSON.stringify(values));
+    // localStorage.setItem("userLogin", JSON.stringify(values));
+    dispatch(authSignUp({ values, token }));
+    localStorage.setItem("Token", token);
   };
   return (
     <div className="login-warp">

@@ -8,12 +8,14 @@ import Checkout from "./components/Checkout";
 import SignUp from "./components/SignUp";
 import UseLogin from "./components/UseLogin";
 
-import useAuth from "./useAuth";
 import PageNotFound from "./components/PageNotFound";
+import { useSelector } from "react-redux";
 
 const Views = () => {
-  const [isAuth, login] = useAuth(false);
-  console.log("au", isAuth);
+  // const [isAuth, login] = useAuth(false);
+  // console.log("au", isAuth);
+  const isLogedIn = useSelector((state) => state.auth.loggedIn == true);
+  console.log("log", isLogedIn);
 
   // for loading spinner
   const [spin, setSpin] = useState(true);
@@ -35,14 +37,12 @@ const Views = () => {
             <Route path="/signup" element={<SignUp />} />
 
             {/* Routes after Login */}
-            {isAuth ? (
+            {isLogedIn ? (
               <>
                 <Route path="/mainComponent" element={<MainComponent />} />
                 <Route path="/checkout" element={<Checkout />} />
               </>
-            ) : (
-              login()
-            )}
+            ) : null}
             <Route path="/:pageName" element={<PageNotFound />}></Route>
           </Routes>
         </Router>

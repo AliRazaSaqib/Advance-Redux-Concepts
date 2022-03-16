@@ -1,7 +1,8 @@
 /** @format */
 
-import { GET_ITEMS, DELETE_ITEM, ADD_ITEM } from "./types";
+import { DELETE_ITEM, ADD_ITEM } from "./types";
 
+// This portion is just for add and delete items from the card
 export const addItems = (productList) => {
   return (dispatch) => dispatch({ type: ADD_ITEM, payload: productList });
 };

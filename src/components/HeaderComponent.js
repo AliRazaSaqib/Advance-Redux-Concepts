@@ -5,8 +5,18 @@ import "antd/dist/antd.css";
 import "../App.css";
 import { Layout, Menu } from "antd";
 import { Header } from "antd/lib/layout/layout";
+import { useSelector, useDispatch } from "react-redux";
+import { authLogout } from "../redux/action/auth";
+import { useNavigate } from "react-router-dom";
 
 const HeaderComponent = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    dispatch(authLogout());
+    navigate("/");
+  };
   return (
     <div>
       <Layout>
@@ -21,6 +31,9 @@ const HeaderComponent = () => {
             <Menu.Item>Item-4</Menu.Item>
             <Menu.Item>Item-5</Menu.Item>
             <Menu.Item>Item-6</Menu.Item>
+            <Menu.Item style={{ marginLeft: "auto" }} onClick={handleLogout}>
+              Logout
+            </Menu.Item>
           </Menu>
         </Header>
       </Layout>

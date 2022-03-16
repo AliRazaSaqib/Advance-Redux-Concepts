@@ -130,25 +130,26 @@ const CartList = () => {
         gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}
         gutter={[20, 16]}
       >
-        {list.map((el) => (
-          <Col key={el.key}>
-            <Card
-              hoverable
-              style={{ width: 250, padding: "4px 4px" }}
-              cover={<img alt="example" src={el.image} height={250} />}
-            >
-              <Button
-                onClick={() => handleAdd(el)}
-                type="primary"
-                className="btn"
-                style={{ width: "100%", marginBottom: "12px" }}
+        {list &&
+          list.map((el) => (
+            <Col key={el.key}>
+              <Card
+                hoverable
+                style={{ width: 250, padding: "4px 4px" }}
+                cover={<img alt="example" src={el.image} height={250} />}
               >
-                Add to list
-              </Button>
-              <Meta title={el.name} description={`Pkr.${el.price}`} />
-            </Card>
-          </Col>
-        ))}
+                <Button
+                  onClick={() => handleAdd(el)}
+                  type="primary"
+                  className="btn"
+                  style={{ width: "100%", marginBottom: "12px" }}
+                >
+                  Add to list
+                </Button>
+                <Meta title={el.name} description={`Pkr.${el.price}`} />
+              </Card>
+            </Col>
+          ))}
       </Row>
 
       {/* product table */}

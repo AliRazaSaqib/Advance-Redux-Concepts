@@ -1,5 +1,7 @@
 /** @format */
 
-export const GET_ITEMS = "GET_ITEMS";
+// export const GET_ITEMS = "GET_ITEMS";
 export const ADD_ITEM = "ADD_ITEM";
 export const DELETE_ITEM = "DELETE_ITEM";
+export const AUTHENTICATED = "AUTHENTICATED";
+export const NOT_AUTHENTICATED = "NOT_AUTHENTICATED";

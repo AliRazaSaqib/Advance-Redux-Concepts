@@ -5,24 +5,31 @@ import "../App.css";
 import { Form, Input, Button, Checkbox, Alert } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-export default function UseLogin(initialValue) {
-  const [isAuth, setIsAuth] = useState(initialValue);
+export default function UseLogin() {
+  // const [isAuth, setIsAuth] = useState(initialValue);
   const navigate = useNavigate();
-  const getLocalStorageData = JSON.parse(localStorage.getItem("userLogin"));
-  const { useremail, password } = getLocalStorageData;
+  // const getLocalStorageData = JSON.parse(localStorage.getItem("userLogin"));
+  // const { useremail, password } = getLocalStorageData;
   const [error, setError] = useState(false);
+  const { useremail, password } = useSelector(
+    (state) => state.auth.currentUser.values
+  );
+
   const onLogin = (values) => {
-    if (values.useremail === useremail && values.password === password) {
-      setTimeout(() => {
-        setIsAuth(true);
-        navigate("/mainComponent");
-      }, 1000);
-    } else {
-      setError(true);
+    try {
+      if (values.useremail === useremail && values.password === password) {
+        setTimeout(() => {
+          navigate("/mainComponent");
+        }, 1000);
+      } else {
+        setError(true);
+      }
+    } catch (error) {
+      console.log("error");
     }
   };
-  console.log("login section", isAuth);
 
   return (
     <div className="login-warp">
